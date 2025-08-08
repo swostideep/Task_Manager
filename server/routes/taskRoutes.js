@@ -1,3 +1,4 @@
+
 import express from "express";
 import {
   getTasks,
@@ -11,7 +12,9 @@ const router = express.Router();
 
 
 router.get("/", protect, getTasks);
-router.post("/", protect, createTask); 
+
+
+router.post("/", protect, createTask);
 router.put("/:id", protect, updateTask);
 router.delete("/:id", protect, deleteTask);
 

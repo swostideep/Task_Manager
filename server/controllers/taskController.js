@@ -1,9 +1,16 @@
-import Task from "../models/Task.js";
 
+import Task from "../models/Task.js";
 
 export const getTasks = async (req, res) => {
   try {
-    const tasks = await Task.find({ user: req.user });
+    const query = { user: req.user };
+
+
+    if (req.query.status) {
+      query.status = req.query.status;
+    }
+
+    const tasks = await Task.find(query);
     res.json(tasks);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -19,6 +26,7 @@ export const createTask = async (req, res) => {
       title,
       description,
       dueDate,
+      status: "pending", 
     });
     await newTask.save();
     res.status(201).json(newTask);
@@ -35,10 +43,10 @@ export const updateTask = async (req, res) => {
 
     const { title, description, dueDate, status } = req.body;
 
-    task.title = title ?? task.title;
-    task.description = description ?? task.description;
-    task.dueDate = dueDate ?? task.dueDate;
-    task.status = status ?? task.status;
+    if (title !== undefined) task.title = title;
+    if (description !== undefined) task.description = description;
+    if (dueDate !== undefined) task.dueDate = dueDate;
+    if (status !== undefined) task.status = status;
 
     await task.save();
     res.json(task);

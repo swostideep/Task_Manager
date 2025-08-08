@@ -33,7 +33,7 @@ function Tasks() {
     e.preventDefault();
     try {
       await axios.post(
-        'hhttps://taskmanager-backend-9ai0.onrender.com/api/tasks',
+        'https://taskmanager-backend-9ai0.onrender.com/api/tasks',
         { title, description, dueDate },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -65,7 +65,7 @@ function Tasks() {
     try {
       const newStatus = currentStatus === 'completed' ? 'pending' : 'completed';
       await axios.put(
-        `hhttps://taskmanager-backend-9ai0.onrender.com/api/tasks/${id}`,
+        `https://taskmanager-backend-9ai0.onrender.com/api/tasks/${id}`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );

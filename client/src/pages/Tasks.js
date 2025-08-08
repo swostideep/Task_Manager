@@ -16,8 +16,8 @@ function Tasks() {
   const fetchTasks = async () => {
     try {
       const url = filter
-        ? `http://localhost:5000/api/tasks?status=${filter}`
-        : `http://localhost:5000/api/tasks`;
+        ? `https://taskmanager-backend-9ai0.onrender.com/api/tasks?status=${filter}`
+        : `https://taskmanager-backend-9ai0.onrender.com/api/tasks`;
 
       const res = await axios.get(url, {
         headers: { Authorization: `Bearer ${token}` },
@@ -33,7 +33,7 @@ function Tasks() {
     e.preventDefault();
     try {
       await axios.post(
-        'http://localhost:5000/api/tasks',
+        'hhttps://taskmanager-backend-9ai0.onrender.com/api/tasks',
         { title, description, dueDate },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -51,7 +51,7 @@ function Tasks() {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this task?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/tasks/${id}`, {
+      await axios.delete(`https://taskmanager-backend-9ai0.onrender.com/api/tasks/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTasks(tasks.filter((task) => task._id !== id));
@@ -65,7 +65,7 @@ function Tasks() {
     try {
       const newStatus = currentStatus === 'completed' ? 'pending' : 'completed';
       await axios.put(
-        `http://localhost:5000/api/tasks/${id}`,
+        `hhttps://taskmanager-backend-9ai0.onrender.com/api/tasks/${id}`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );

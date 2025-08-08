@@ -12,7 +12,7 @@ function EditTask() {
   useEffect(() => {
     const fetchTask = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/tasks`, {
+        const res = await axios.get(`https://taskmanager-backend-9ai0.onrender.com/api/tasks`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -30,7 +30,7 @@ function EditTask() {
     e.preventDefault();
     try {
       await axios.put(
-        `http://localhost:5000/api/tasks/${id}`,
+        `https://taskmanager-backend-9ai0.onrender.com/api/tasks/${id}`,
         {
           title: task.title,
           description: task.description,

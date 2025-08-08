@@ -13,7 +13,7 @@ function AddTask() {
     try {
       const token = localStorage.getItem('token');
       await axios.post(
-        'http://localhost:5000/api/tasks',
+        'https://taskmanager-backend-9ai0.onrender.com/api/tasks',
         { title, description, dueDate },
         {
           headers: {

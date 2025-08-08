@@ -33,6 +33,10 @@ Users can register, log in, create tasks, update them, mark them as completed or
 
 ---
 
+Deployed link : https://task-manager-five-gilt-15.vercel.app/login
+
+---
+
 ## Folder Structure
 ```
 task-manager/
